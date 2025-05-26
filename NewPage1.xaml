@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:converters="clr-namespace:EgasTaller.Converters"  
+             x:Class="EgasTaller.layout.NewPage1"  
+             Title="...........Bienvenid@......">
+
+    <ContentPage.Resources>
+        <converters:DoubleToIntConverter 
+            x:Key="doubleToInt" />
+
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="500" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <BoxView x:Name="boxView" Color="Black" />
+            <Grid Grid.Row="1" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Slider x:Name="redSlider" ValueChanged="OnSliderValueChanged" />
+                <Label x:DataType="Slider"
+                       Grid.Row="1"
+                       Text="{Binding Source={x:Reference redSlider}, Path=Value,
+                              Converter={StaticResource doubleToInt},
+                              ConverterParameter=255,
+                              StringFormat='Red = {0}'}" />
+                <Slider x:Name="greenSlider"
+                        Grid.Row="2"
+                        ValueChanged="OnSliderValueChanged" />
+                <Label x:DataType="Slider"
+                       Grid.Row="3"
+                       Text="{Binding Source={x:Reference greenSlider}, Path=Value,
+                              Converter={StaticResource doubleToInt},
+                              ConverterParameter=255,
+                              StringFormat='Green = {0}'}" />
+                <Slider x:Name="blueSlider"
+                        Grid.Row="4"
+                        ValueChanged="OnSliderValueChanged" />
+                <Label x:DataType="Slider"
+                       Grid.Row="5"
+                       Text="{Binding Source={x:Reference blueSlider}, Path=Value,
+                              Converter={StaticResource doubleToInt},
+                              ConverterParameter=255,
+                              StringFormat='Blue = {0}'}" />
+            </Grid>
+        </Grid>
+
+        <Label Text="Revisar el Flex"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Button x:Name="GotoMainPage"
+                Text="GotoMainPage"
+                Clicked="GotoMainPage_Clicked_1" />
+    </VerticalStackLayout>
+</ContentPage>

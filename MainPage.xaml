@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgasTaller.layout.MainPage">
+    <VerticalStackLayout Padding="20">
+        <Label Text="¡Has navegado a la MainPage!"
+               FontSize="24"
+               HorizontalOptions="Center" />
+        <Button Text="Volver"
+                Clicked="OnBackClicked" />
+        <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+
+            <Label
+                Text="Bienvenidos"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Escoge un color favorito para empezar en cada uno de datos asigandos"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="BotonIrADemo"
+                Text="Ir a Demo"
+                Clicked="BotonIrADemo_Clicked"
+                  />
+        </VerticalStackLayout>
+</ContentPage>
